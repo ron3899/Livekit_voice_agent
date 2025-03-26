@@ -1,0 +1,7 @@
+{
+  "rule": {
+    "dispatchRuleDirect": {
+      "roomName": "open-room"
+    }
+  }
+}

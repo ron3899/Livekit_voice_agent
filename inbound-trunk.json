@@ -1,0 +1,8 @@
+{
+    "trunk": {
+      "name": "livekit_sip",
+      "numbers": ["+97233768670"],
+      "krisp_enabled": true
+
+    }
+}

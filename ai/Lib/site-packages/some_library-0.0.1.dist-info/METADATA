@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: some_library
+Version: 0.0.1
+Summary: dummy_package
+Home-page: https://github.com/ArneDefauw/dummy_repo_1111
+Author: A
+License: BSD-3-Clause
+Project-URL: Bug Tracker, https://github.com/ArneDefauw/dummy_repo_1111/issues
+Project-URL: Documentation, https://github.com/ArneDefauw/dummy_repo_1111#README.md
+Project-URL: Source Code, https://github.com/ArneDefauw/dummy_repo_1111
+Project-URL: User Support, https://github.com/ArneDefauw/dummy_repo_1111/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: napari
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: spatialdata>=0.2.0
+Provides-Extra: testing
+Requires-Dist: pytest; extra == "testing"
+Requires-Dist: pytest-cov; extra == "testing"
+Requires-Dist: tox; extra == "testing"
+Requires-Dist: nbconvert; extra == "testing"
+Provides-Extra: docs
+Requires-Dist: sphinx>=4.5; extra == "docs"
+Requires-Dist: sphinx-book-theme>=1.0.0; extra == "docs"
+Requires-Dist: sphinx_rtd_theme; extra == "docs"
+Requires-Dist: myst-nb; extra == "docs"
+Requires-Dist: sphinxcontrib-bibtex>=1.0.0; extra == "docs"
+Requires-Dist: sphinx-autodoc-typehints; extra == "docs"
+Requires-Dist: sphinx-design; extra == "docs"
+Requires-Dist: ipython>=8.6.0; extra == "docs"
+Requires-Dist: sphinx-copybutton; extra == "docs"
+
+# dummy_repo_1111

@@ -1,0 +1,535 @@
+Metadata-Version: 2.3
+Name: multiscale_spatial_image
+Version: 2.0.2
+Summary: Generate a multiscale, chunked, multi-dimensional spatial image data structure that can be serialized to OME-NGFF.
+Project-URL: Home, https://github.com/spatial-image/multiscale-spatial-image
+Project-URL: Source, https://github.com/spatial-image/multiscale-spatial-image
+Project-URL: Issues, https://github.com/spatial-image/multiscale-spatial-image
+Author-email: Matt McCormick <matt@mmmccormick.com>
+License: 
+                                         Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+Keywords: dask,imaging,itk,ngff,ome,visualization,zarr
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: <3.13,>=3.10
+Requires-Dist: dask
+Requires-Dist: numpy
+Requires-Dist: python-dateutil
+Requires-Dist: spatial-image>=0.2.1
+Requires-Dist: xarray>=2024.10.0
+Requires-Dist: zarr
+Provides-Extra: dask-image
+Requires-Dist: dask-image; extra == 'dask-image'
+Provides-Extra: imagej
+Requires-Dist: pyimagej; extra == 'imagej'
+Provides-Extra: itk
+Requires-Dist: itk-filtering>=5.3.0; extra == 'itk'
+Provides-Extra: notebooks
+Requires-Dist: matplotlib<4,>=3.9.2; extra == 'notebooks'
+Requires-Dist: ome-types<0.6,>=0.5.1.post1; extra == 'notebooks'
+Requires-Dist: tqdm<5,>=4.66.4; extra == 'notebooks'
+Provides-Extra: test
+Requires-Dist: dask-image; extra == 'test'
+Requires-Dist: fsspec; extra == 'test'
+Requires-Dist: ipfsspec; extra == 'test'
+Requires-Dist: itk-filtering>=5.3.0; extra == 'test'
+Requires-Dist: jsonschema; extra == 'test'
+Requires-Dist: nbmake; extra == 'test'
+Requires-Dist: pooch; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-mypy; extra == 'test'
+Requires-Dist: urllib3; extra == 'test'
+Description-Content-Type: text/markdown
+
+# multiscale-spatial-image
+
+[![Test](https://github.com/spatial-image/multiscale-spatial-image/actions/workflows/test.yml/badge.svg)](https://github.com/spatial-image/multiscale-spatial-image/actions/workflows/test.yml)
+[![Notebook tests](https://github.com/spatial-image/multiscale-spatial-image/actions/workflows/notebook-test.yml/badge.svg)](https://github.com/spatial-image/multiscale-spatial-image/actions/workflows/notebook-test.yml)
+[![image](https://img.shields.io/pypi/v/multiscale_spatial_image.svg)](https://pypi.python.org/pypi/multiscale_spatial_image/)
+[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
+[![DOI](https://zenodo.org/badge/379678181.svg)](https://zenodo.org/badge/latestdoi/379678181)
+
+Generate a multiscale, chunked, multi-dimensional spatial image data structure
+that can serialized to [OME-NGFF].
+
+Each scale is a scientific Python [Xarray] [spatial-image] [Dataset], organized
+into nodes of an Xarray [Datatree].
+
+## Installation
+
+```sh
+pip install multiscale_spatial_image
+```
+
+## Usage
+
+```python
+import numpy as np
+from spatial_image import to_spatial_image
+from multiscale_spatial_image import to_multiscale
+import zarr
+
+# Image pixels
+array = np.random.randint(0, 256, size=(128,128), dtype=np.uint8)
+
+image = to_spatial_image(array)
+print(image)
+```
+
+An [Xarray] [spatial-image] [DataArray]. Spatial metadata can also be passed
+during construction.
+
+```
+<xarray.DataArray 'image' (y: 128, x: 128)> Size: 16kB
+array([[170,  79, 215, ...,  31, 151, 150],
+       [ 77, 181,   1, ..., 217, 176, 228],
+       [193,  91, 240, ..., 132, 152,  41],
+       ...,
+       [ 50, 140, 231, ...,  80, 236,  28],
+       [ 89,  46, 180, ...,  84,  42, 140],
+       [ 96, 148, 240, ...,  61,  43, 255]], dtype=uint8)
+Coordinates:
+  * y        (y) float64 1kB 0.0 1.0 2.0 3.0 4.0 ... 124.0 125.0 126.0 127.0
+  * x        (x) float64 1kB 0.0 1.0 2.0 3.0 4.0 ... 124.0 125.0 126.0 127.0
+```
+
+```python
+# Create multiscale pyramid, downscaling by a factor of 2, then 4
+multiscale = to_multiscale(image, [2, 4])
+print(multiscale)
+```
+
+A chunked [Dask] Array MultiscaleSpatialImage [Xarray] [Datatree].
+
+```
+<xarray.DataTree>
+Group: /
+├── Group: /scale0
+│       Dimensions:  (y: 128, x: 128)
+│       Coordinates:
+│         * y        (y) float64 1kB 0.0 1.0 2.0 3.0 4.0 ... 124.0 125.0 126.0 127.0
+│         * x        (x) float64 1kB 0.0 1.0 2.0 3.0 4.0 ... 124.0 125.0 126.0 127.0
+│       Data variables:
+│           image    (y, x) uint8 16kB dask.array<chunksize=(128, 128), meta=np.ndarray>
+├── Group: /scale1
+│       Dimensions:  (y: 64, x: 64)
+│       Coordinates:
+│         * y        (y) float64 512B 0.5 2.5 4.5 6.5 8.5 ... 120.5 122.5 124.5 126.5
+│         * x        (x) float64 512B 0.5 2.5 4.5 6.5 8.5 ... 120.5 122.5 124.5 126.5
+│       Data variables:
+│           image    (y, x) uint8 4kB dask.array<chunksize=(64, 64), meta=np.ndarray>
+└── Group: /scale2
+        Dimensions:  (y: 16, x: 16)
+        Coordinates:
+          * y        (y) float64 128B 3.5 11.5 19.5 27.5 35.5 ... 99.5 107.5 115.5 123.5
+          * x        (x) float64 128B 3.5 11.5 19.5 27.5 35.5 ... 99.5 107.5 115.5 123.5
+        Data variables:
+            image    (y, x) uint8 256B dask.array<chunksize=(16, 16), meta=np.ndarray>
+```
+
+Map a function over datasets while skipping nodes that do not contain dimensions
+
+```python
+import numpy as np
+from spatial_image import to_spatial_image
+from multiscale_spatial_image import skip_non_dimension_nodes, to_multiscale
+
+data = np.zeros((2, 200, 200))
+dims = ("c", "y", "x")
+scale_factors = [2, 2]
+image = to_spatial_image(array_like=data, dims=dims)
+multiscale = to_multiscale(image, scale_factors=scale_factors)
+
+@skip_non_dimension_nodes
+def transpose(ds, *args, **kwargs):
+    return ds.transpose(*args, **kwargs)
+
+multiscale = multiscale.map_over_datasets(transpose, "y", "x", "c")
+print(multiscale)
+```
+
+A transposed MultiscaleSpatialImage.
+
+```
+<xarray.DataTree>
+Group: /
+├── Group: /scale0
+│       Dimensions:  (c: 2, y: 200, x: 200)
+│       Coordinates:
+│         * c        (c) int32 8B 0 1
+│         * y        (y) float64 2kB 0.0 1.0 2.0 3.0 4.0 ... 196.0 197.0 198.0 199.0
+│         * x        (x) float64 2kB 0.0 1.0 2.0 3.0 4.0 ... 196.0 197.0 198.0 199.0
+│       Data variables:
+│           image    (y, x, c) float64 640kB dask.array<chunksize=(200, 200, 2), meta=np.ndarray>
+├── Group: /scale1
+│       Dimensions:  (c: 2, y: 100, x: 100)
+│       Coordinates:
+│         * c        (c) int32 8B 0 1
+│         * y        (y) float64 800B 0.5 2.5 4.5 6.5 8.5 ... 192.5 194.5 196.5 198.5
+│         * x        (x) float64 800B 0.5 2.5 4.5 6.5 8.5 ... 192.5 194.5 196.5 198.5
+│       Data variables:
+│           image    (y, x, c) float64 160kB dask.array<chunksize=(100, 100, 2), meta=np.ndarray>
+└── Group: /scale2
+        Dimensions:  (c: 2, y: 50, x: 50)
+        Coordinates:
+          * c        (c) int32 8B 0 1
+          * y        (y) float64 400B 1.5 5.5 9.5 13.5 17.5 ... 185.5 189.5 193.5 197.5
+          * x        (x) float64 400B 1.5 5.5 9.5 13.5 17.5 ... 185.5 189.5 193.5 197.5
+        Data variables:
+            image    (y, x, c) float64 40kB dask.array<chunksize=(50, 50, 2), meta=np.ndarray>
+```
+
+While the decorator allows you to define your own methods to map over datasets
+in the `DataTree` while ignoring those datasets not having dimensions, this
+library also provides a few convenience methods. For example, the transpose
+method we saw earlier can also be applied as follows:
+
+```python
+multiscale = multiscale.msi.transpose("y", "x", "c")
+```
+
+Other methods implemented this way are `reindex`, equivalent to the
+`xr.DataArray`
+[reindex](https://docs.xarray.dev/en/stable/generated/xarray.DataArray.reindex.html)
+method and `assign_coords`, equivalent to `xr.Dataset` `assign_coords` method.
+
+Store as an Open Microscopy Environment-Next Generation File Format ([OME-NGFF])
+/ [netCDF] [Zarr] store.
+
+It is highly recommended to use `dimension_separator='/'` in the construction of
+the Zarr stores.
+
+```python
+store = zarr.storage.DirectoryStore('multiscale.zarr', dimension_separator='/')
+multiscale.to_zarr(store)
+```
+
+**Note**: The API is under development, and it may change until 1.0.0 is
+released. We mean it :-).
+
+## Examples
+
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/spatial-image/multiscale-spatial-image/main?urlpath=lab/tree/examples%2FHelloMultiscaleSpatialImageWorld.ipynb)
+  [Hello MultiscaleSpatialImage World!](./examples/HelloMultiscaleSpatialImageWorld.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/spatial-image/multiscale-spatial-image/main?urlpath=lab/tree/examples%2FConvertITKImage.ipynb)
+  [Convert itk.Image](./examples/ConvertITKImage.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/spatial-image/multiscale-spatial-image/main?urlpath=lab/tree/examples%2FConvertImageioImageResource.ipynb)
+  [Convert imageio ImageResource](./examples/ConvertImageioImageResource.ipynb)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/spatial-image/multiscale-spatial-image/main?urlpath=lab/tree/examples%2FConvertPyImageJDataset.ipynb)
+  [Convert pyimagej Dataset](./examples/ConvertPyImageJDataset.ipynb)
+
+## Development
+
+Contributions are welcome and appreciated.
+
+### Get the source code
+
+```shell
+git clone https://github.com/spatial-image/multiscale-spatial-image
+cd multiscale-spatial-image
+```
+
+### Install dependencies
+
+First install [pixi]. Then, install project dependencies:
+
+```shell
+pixi install -a
+pixi run pre-commit-install
+```
+
+### Run the test suite
+
+The unit tests:
+
+```shell
+pixi run -e test test
+```
+
+The notebooks tests:
+
+```shell
+pixi run test-notebooks
+```
+
+### Update test data
+
+To add new or update testing data, such as a new baseline for this block:
+
+```py
+dataset_name = "cthead1"
+image = input_images[dataset_name]
+baseline_name = "2_4/XARRAY_COARSEN"
+multiscale = to_multiscale(image, [2, 4], method=Methods.XARRAY_COARSEN)
+verify_against_baseline(test_data_dir, dataset_name, baseline_name, multiscale)
+```
+
+Add a `store_new_image` call in your test block:
+
+```py
+dataset_name = "cthead1"
+image = input_images[dataset_name]
+baseline_name = "2_4/XARRAY_COARSEN"
+multiscale = to_multiscale(image, [2, 4], method=Methods.XARRAY_COARSEN)
+
+store_new_image(dataset_name, baseline_name, multiscale)
+
+verify_against_baseline(dataset_name, baseline_name, multiscale)
+```
+
+Run the tests to generate the output. Remove the `store_new_image` call.
+
+Then, create a tarball of the current testing data
+
+```console
+cd test/data
+tar cvf ../data.tar *
+gzip -9 ../data.tar
+python3 -c 'import pooch; print(pooch.file_hash("../data.tar.gz"))'
+```
+
+Update the `test_data_sha256` variable in the _test/\_data.py_ file. Upload the
+data to [web3.storage](https://web3.storage). And update the
+`test_data_ipfs_cid`
+[Content Identifier (CID)](https://proto.school/anatomy-of-a-cid/01) variable,
+which is available in the web3.storage web page interface.
+
+### Submit the patch
+
+We use the standard [GitHub flow].
+
+### Create a release
+
+This section is relevant only for maintainers.
+
+1. Pull `git`'s `main` branch.
+2. `pixi install -a`
+3. `pixi run pre-commit-install`
+4. `pixi run -e test test`
+5. `pixi shell`
+6. `hatch version <new-version>`
+7. `git add .`
+8. `git commit -m "ENH: Bump version to <version>"`
+9. `hatch build`
+10. `hatch publish`
+11. `git push upstream main`
+12. Create a new tag and Release via the GitHub UI. Auto-generate release notes
+    and add additional notes as needed.
+
+[spatial-image]: https://github.com/spatial-image/spatial-image
+[Xarray]: https://xarray.pydata.org/en/stable/
+[OME-NGFF]: https://ngff.openmicroscopy.org/
+[Dataset]: https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html
+[Datatree]: https://xarray-datatree.readthedocs.io/en/latest/
+[DataArray]: https://xarray.pydata.org/en/stable/generated/xarray.DataArray.html
+[Zarr]: https://zarr.readthedocs.io/en/stable/
+[Dask]: https://docs.dask.org/en/stable/array.html
+[netCDF]: https://www.unidata.ucar.edu/software/netcdf/
+[pixi]: https://pixi.sh
+[GitHub flow]: https://docs.github.com/en/get-started/using-github/github-flow
